@@ -5,4 +5,7 @@ describe "New author page", type: :feature do
 	# https://guides.rubyonrails.org/routing.html#path-and-url-helpers
 	visit new_author_path
 	end
+	it "should exist input fields at 'new author' page" do
+	have_field '#field'
+	end
 end
