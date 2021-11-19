@@ -1,13 +1,18 @@
 <h1>Boring Author</h1>
 <%= form_with scope: :author, url: authors_path, local: true do |form| %>
 	<p>
-	  <%= form.label :title %><br>
-	  <%= form.text_field :title %>
+	  <%= form.label :'first name' %><br>
+	  <%= form.text_field :first_name %>
 	</p>
-   
+
 	<p>
-	  <%= form.label :text %><br>
-	  <%= form.text_area :text %>
+	  <%= form.label :'last name' %><br>
+	  <%= form.text_field :last_name %>
+	</p>
+
+	<p>
+	  <%= form.label :'homepage' %><br>
+	  <%= form.text_field :homepage %>
 	</p>
    
 	<p>
