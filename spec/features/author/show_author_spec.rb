@@ -1,23 +1,16 @@
 require 'rails_helper'
+describe "Show author page", type: :feature do
+  it "should exist at 'author_path(:id)' and render without an error" do
+    author = create :author
+    visit author_path(author.id)
+  end
 
-author_Alan = Author.create(
-            first_name:"Alan",
-            last_name:"Turing",
-            homepage:"http://wikipedia.org/Alan_Turing")
+  it "should contain all the relevant info" do
+    author = create :author
+    visit author_path(author.id)
 
-describe "Author page", :type => :feature do
-	it "Author page should display all authors" do
-        visit authors_path
-        expect(page).to have_text("Alan")
-        expect(page).to have_text("Turing")
-    end
-
-    it "Author page should display author details #7" do
-        # Tipp im Issue: FactoryBot.create :author
-		visit authors_path(@alan)
-        expect(page).to have_text("Alan")
-        expect(page).to have_text("Turing")
-        expect(page).to have_text("http://wikipedia.org/Alan_Turing")
-    end
-
-end 
+    expect(page).to have_text("Alan")
+    expect(page).to have_text("Turing")
+    expect(page).to have_text("http://wikipedia.de/Alan_Turing")
+  end
+end
