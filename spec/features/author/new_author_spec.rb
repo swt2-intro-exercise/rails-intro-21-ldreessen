@@ -19,4 +19,10 @@ describe "New author page", type: :feature do
 		page.fill_in('author[homepage]', with: 'https://de.wikipedia.org/wiki/Edsger_W._Dijkstra')
 		find('input[type="submit"]').click
 	end
+	it "should not be valid without a last name" do
+		author = build :author
+		author.last_name = ""
+	
+		expect(author).to_not be_valid
+	  end
 end
