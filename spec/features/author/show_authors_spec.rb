@@ -15,6 +15,6 @@ describe "Show authors index page", type: :feature do
     author = create :author
     visit authors_path
 
-    expect(page).to have_link "Details", href: author_path(author.id)
+	expect(page).to have_link nil, href: edit_author_path(author.id)
   end
 end
