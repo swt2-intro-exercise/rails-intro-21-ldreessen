@@ -17,10 +17,29 @@ RSpec.describe Paper, type: :model do
 		expect(paper.year).to eq(year)
 	  end
 	
-	  it "should not be valid without a title" do
+	  it "shouldn't be valid without a title" do
 		paper = build :paper
 		paper.title = ""
 	
+		expect(paper).to_not be_valid
+	  end
+	  it "shouldn't be valid without a venue" do
+		paper = build :paper
+		paper.venue = ""
+	
+		expect(paper).to_not be_valid
+	  end
+	
+	  it "shouldn't be valid without a numerical year" do
+		paper = build :paper
+	
+		paper.year = ""
+		expect(paper).to_not be_valid
+	
+		paper.year = 2001
+		expect(paper).to be_valid
+	
+		paper.year = 2.8
 		expect(paper).to_not be_valid
 	  end
 end
