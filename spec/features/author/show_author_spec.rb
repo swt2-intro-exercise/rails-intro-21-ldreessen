@@ -14,7 +14,7 @@ describe "Author page", :type => :feature do
 
     it "Author page should display author details #7" do
         # Tipp im Issue: FactoryBot.create :author
-        visit authors_path(@Alan)
+		visit authors_path(@alan)
         expect(page).to have_text("Alan")
         expect(page).to have_text("Turing")
         expect(page).to have_text("http://wikipedia.org/Alan_Turing")
