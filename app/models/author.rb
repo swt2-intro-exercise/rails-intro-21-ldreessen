@@ -4,7 +4,11 @@ class Author < ApplicationRecord
 		@last_name = last_name
 		@homepage = homepage
 	end
-	validates :last_name, presence: true, length: { minimum: 1 }
+
+	validates :first_name, presence: true, length: { minimum: 1 }
+  	validates :last_name, presence: true, length: { minimum: 1 }
+  	validates :homepage, presence: true, length: { minimum: 1 }
+	
 	def name
 		return self.first_name + ' ' + self.last_name
 	end
