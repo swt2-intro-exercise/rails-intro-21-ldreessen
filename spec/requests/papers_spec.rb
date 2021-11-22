@@ -17,11 +17,19 @@ RSpec.describe "/papers", type: :request do
   # Paper. As you add validations to Paper, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+	{
+		title: "MyBook",
+		venue: "MyString",
+		year: 2001,
+	  }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+	{
+		title: "",
+		venue: "",
+		year: 0.7,
+	  }
   }
 
   describe "GET /index" do
