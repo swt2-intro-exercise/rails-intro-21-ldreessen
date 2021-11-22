@@ -11,6 +11,17 @@ class AuthorsController < ApplicationController
         @authors = Author.all
       end
 
+	  def edit
+		@author = Author.find(params[:id])
+	  end
+
+	  def update
+		@author = Author.find(params[:id])
+		# update the author, but always render the edit page again
+		@author.update(author_params)
+		render :edit
+	  end
+
 	  def create
         @author = Author.new(author_params)
         if @author.save
