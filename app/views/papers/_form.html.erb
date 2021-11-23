@@ -1,4 +1,4 @@
-<%= form_with(model: paper, local: true) do |form| %>
+<%= form_with model: paper do |form| %>
   <% if paper.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(paper.errors.count, "error") %> prohibited this paper from being saved:</h2>
@@ -35,7 +35,7 @@
     <%= form.select 'author_ids',
                     options_from_collection_for_select(Author.all, :id, :name, paper.author_ids),
                     {},
-                    multiple: true, size: 10 %>
+					{ multiple: true, size: 10 } %>
   </div>
   
 <% end %>
